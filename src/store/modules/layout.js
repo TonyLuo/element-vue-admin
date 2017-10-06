@@ -96,11 +96,11 @@ const mutations = {
       }
       currentPath.push(currentNode)
     }
-    currentPath.push({
-      title: '首页',
-      path: '/',
-      name: 'home'
-    })
+    // currentPath.push({
+    //   title: '首页',
+    //   path: '/',
+    //   name: 'home'
+    // })
     state.currentPath = currentPath.reverse()
 
     state.openedMenuNameList = openedMenuList.map(item => {

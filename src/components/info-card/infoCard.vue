@@ -1,20 +1,20 @@
 <template>
 
-  <Card :padding="0">
+  <el-card :padding="0">
     <div class="info-card-con">
-      <Col class="info-card-icon-con" :style="{backgroundColor: color, color: 'white'}" span="8">
+      <el-col class="info-card-icon-con" :style="{backgroundColor: color, color: 'white'}" :span="8">
       <div class="align-middle">
-        <Icon :type="iconType" :size="iconSize"></Icon>
+        <i :type="iconType" :size="iconSize"></i>
       </div>
-      </Col>
-      <Col span="16" class="height-100">
+      </el-col>
+      <el-col :span="16" class="height-100">
       <div  class="align-middle" >
         <p :style="{color: color}" class="info-num">{{count}}</p>
         <p class="info-intro-text">{{ message }}</p>
       </div>
-      </Col>
+      </el-col>
     </div>
-  </Card>
+  </el-card>
 </template>
 <style lang="less">
 
@@ -44,7 +44,10 @@
   }
 </style>
 <script>
+  import ElCol from 'element-ui/packages/col/src/col'
+
   export default {
+    components: {ElCol},
     name: 'infoCard',
     props: {
       color: String,

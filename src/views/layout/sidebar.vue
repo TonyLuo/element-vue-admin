@@ -1,42 +1,46 @@
 <template>
   <span>
-  <Menu ref="sideMenu"
-        :active-name="currentPageName"
-        :open-names="openedMenuList"
-        width="auto"
-        @on-select="changeMenu"
-        :theme="theme"
-        :class="{'hide-sidebard-text': hideSidebarText}">
-    <slot name="top" :class="slotTopClass"></slot>
-    <template v-for="item in $store.state.layout.menuList">
-      <MenuItem v-if="!item.children" :name="item.name" :key="item.path">
-        <Icon :type="item.icon" :size="iconSize" :key="item.path"></Icon>
-        <span class="sidebar-menu-text" :key="item.path">{{ item.title }}</span>
-      </MenuItem>
+    <el-menu
+             :default-active="currentPageName"
+             class="el-menu-vertical-demo disabled-animation"
+             @open="handleOpen"
+             @close="handleClose"
+             :collapse="isCollapse"
+             :class="{'hide-sidebard-text': isCollapse}">
+      <template v-for="item in $store.state.layout.menuList">
+        <el-menu-item v-if="!item.children" :index="item.name" :key="item.path">
+          <i class="el-icon-menu" :key="item.path"></i>
+          <span class="sidebar-menu-text" :key="item.path" slot="title">{{ item.title }}</span>
+        </el-menu-item>
 
-      <Submenu :name="item.name" v-if="item.children && item.children.length > 0" :key="item.path">
-        <template slot="title">
-          <Icon :type="item.icon" :size="iconSize"></Icon>
-          <span class="sidebar-menu-text">{{ item.title }}</span>
-        </template>
-        <MenuItem :name="child.name" :key="child.name" v-for="child in item.children">
-          <Icon :type="child.icon" :size="iconSize" :key="child.name"></Icon>
-          <span class="sidebar-menu-text" :key="child.name">{{ child.title }}</span>
-        </MenuItem>
-      </Submenu>
-    </template>
-  </Menu>
+        <el-submenu :index="item.name" v-if="item.children && item.children.length > 0" :key="item.path">
+          <template slot="title">
+            <i class="el-icon-message"></i>
+            <span class="sidebar-menu-text">{{ item.title }}</span>
+          </template>
+          <el-menu-item :index="child.name" :key="child.name" v-for="child in item.children">
+            <i class="el-icon-menu" :key="child.path"></i>
+            <span class="sidebar-menu-text" :key="child.name" slot="title">{{ child.title }}</span>
 
-    </span>
+          </el-menu-item>
+        </el-submenu>
+      </template>
+    </el-menu>
+
+  </span>
 </template>
 <style>
-  .hide-sidebard-text .sidebar-menu-text {
-    display: none;
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
   }
+  /*.hide-sidebard-text .sidebar-menu-text {*/
+    /*display: none;*/
+  /*}*/
 
-  .hide-sidebard-text i.ivu-menu-submenu-title-icon {
-    display: none;
-  }
+  /*.hide-sidebard-text i.ivu-menu-submenu-title-icon {*/
+    /*display: none;*/
+  /*}*/
 </style>
 <script>
 
@@ -44,7 +48,7 @@
     name: 'sidebar',
     props: {
       theme: {type: String, default: 'dark'},
-      hideSidebarText: {type: Boolean, default: false}
+      isCollapse: {type: Boolean, default: false}
     },
     data () {
       return {
@@ -72,6 +76,12 @@
       }
     },
     methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      },
       init () {
         this.currentPageName = this.$route.name
       },
@@ -80,8 +90,8 @@
         this.$store.dispatch('setCurrentPath', this.currentPageName).then(() => {
           this.openedMenuList = this.$store.state.layout.openedMenuNameList.slice()
           this.$nextTick(() => {
-            this.$refs.sideMenu.updateOpened()
-            this.$refs.sideMenu.updateActiveName()
+//            this.$refs.sideMenu.updateOpened()
+//            this.$refs.sideMenu.updateActiveName()
           })
         })
 

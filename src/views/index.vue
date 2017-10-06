@@ -1,23 +1,21 @@
 <template>
   <span>
-    <div class="left col" :style="{width: hideSidebarText?'60px':'200px'}">
-      <div class="header row " style="text-align: center">
-        <a v-if="!hideSidebarText" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white">
-          <Icon type="social-github" size="24"></Icon>
+    <div class="left col" >
+      <div class="header row " style="text-align: center" :style="{width: isCollapse?'60px':'200px'}">
+        <a v-if="!isCollapse" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white">
+          <i class="el-icon-message" size="24"></i>
         </a>
-        <span :class="[hideSidebarText ? 'text-alight-center' : 'floating-right']" @click="toggleClick">
-            <Icon type="navicon" size="30" color="white"></Icon>
+        <span :class="[isCollapse ? 'text-alight-center' : 'floating-right']" @click="toggleClick">
+            <i class="el-icon-message" size="30" color="white"></i>
         </span>
       </div>
 
       <div class="body row scroll-y" style="top:40px">
-        <sidebar :hide-sidebar-text="hideSidebarText" theme="dark"></sidebar>
+        <sidebar :isCollapse="isCollapse" theme="dark"></sidebar>
       </div>
-      <!--<div class="footer row">-->
-      <!--&lt;!&ndash;<img style="height: 40px"  src="static/assets/img/logo.png">&ndash;&gt;-->
-      <!--</div>-->
+
     </div>
-    <div class="right col" :style="{left: hideSidebarText?'60px':'200px'}">
+    <div class="right col" :style="{left: isCollapse?'60px':'200px'}">
       <ceiling></ceiling>
       <tabs class="layout-tabs"></tabs>
       <breadcrumb class="layout-breadcrumb"></breadcrumb>
@@ -25,19 +23,25 @@
       <div class="body row scroll-y" style="padding: 1em">
         <router-view></router-view>
       </div>
-      <!--<div class="footer row">-->
-      <!--Some status text here-->
-      <!--</div>-->
     </div>
-    <BackTop></BackTop>
-
-  </span>
-
+    </span>
 </template>
+
 <style>
-  @import "../styles/dark.theme.css";
   @import "./layout/css/layout.css";
+
+  .el-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
+  }
+
+  .el-aside {
+    color: #333;
+  }
+
 </style>
+
 
 <script>
   import ceiling from './layout/ceiling.vue'
@@ -47,14 +51,20 @@
 
   export default {
     components: {
-      ceiling,
       sidebar,
+      ceiling,
       breadcrumb,
       tabs
     },
     data () {
+      const item = {
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }
       return {
-        hideSidebarText: false
+        tableData: Array(20).fill(item),
+        isCollapse: false
       }
     },
     methods: {
@@ -63,7 +73,7 @@
 
       },
       toggleClick () {
-        this.hideSidebarText = !this.hideSidebarText
+        this.isCollapse = !this.isCollapse
       }
     },
     watch: {},
@@ -72,3 +82,4 @@
     }
   }
 </script>
+

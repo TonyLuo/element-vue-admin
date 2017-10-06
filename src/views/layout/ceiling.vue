@@ -1,18 +1,14 @@
 <template>
   <div class="layout-ceiling">
-    <!--<Avatar class="align-middle avatar" shape="square" src="https://i.loli.net/2017/08/21/599a521472424.jpg" />-->
 
-    <Dropdown style="float: right" placement="bottom-end">
-        <!--<Avatar class="avatar"  shape="square" src="https://i.loli.net/2017/08/21/599a521472424.jpg" />-->
-      <Button type="text" style="margin-top: -3px; margin-right:-10px;">
-        <Avatar class="avatar"  shape="square" src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
-      </Button>
-      <DropdownMenu slot="list">
-        <DropdownItem>个人设置</DropdownItem>
-        <DropdownItem divided>退出登录</DropdownItem>
-      </DropdownMenu>
-
-    </Dropdown>
+    <el-dropdown trigger="hover" style="float: right">
+      <span class="el-dropdown-link avatar"><img src="https://i.loli.net/2017/08/21/599a521472424.jpg" /> </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>我的消息</el-dropdown-item>
+        <el-dropdown-item>设置</el-dropdown-item>
+        <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
     <div class="layout-ceiling-main align-middle" >
       <a href="#/login">注册登录</a>
       <a href="#">帮助中心</a>
@@ -25,7 +21,7 @@
 
   </div>
 </template>
-<style scoped>
+<style scoped >
   .layout-ceiling {
     background: #464c5b;
     /*padding: 10px 0;*/
@@ -56,6 +52,15 @@
     float: right;
     margin-right: 1em
   }
+  .layout-ceiling .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 10px 0px 10px 10px;
+    float: right;
+  }
+
+
 </style>
 <script>
   export default {

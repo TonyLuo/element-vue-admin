@@ -1,21 +1,23 @@
 <template>
-
-  <Tabs type="card" closable id="tabs-nav"
-        @on-tab-remove="handleTabRemove"
-        @on-click="linkTo"
-        v-model="currentPageName">
-    <TabPane :label="item.title" v-for="(item,index)  in $store.state.layout.pageOpenedList"
-             :name="item.name"
-             :key="item.name">
-    </TabPane>
-  </Tabs>
-
+  <el-tabs id="tabs-nav" v-model="currentPageName" type="card" closable @tab-remove="removeTab">
+    <el-tab-pane
+      :key="item.name"
+      v-for="(item, index) in  $store.state.layout.pageOpenedList"
+      :label="item.title"
+      :name="item.name"
+    >
+      {{item.content}}
+    </el-tab-pane>
+  </el-tabs>
 </template>
 <style>
 
   /* Hide close button for home page */
   #tabs-nav .ivu-tabs-nav > div:nth-child(2) > i {
     display: none
+  }
+  #tabs-nav > div.el-tabs__header > div > div.el-tabs__nav-scroll > div > div > span{
+
   }
 </style>
 <script>
@@ -47,7 +49,7 @@
       init () {
         this.currentPageName = this.$route.name
       },
-      handleTabRemove (name) {
+      removeTab (name) {
         this.$store.dispatch('removeTab', name)
       },
       linkTo (name) {

@@ -1,89 +1,89 @@
 <template>
   <div>
-    <Row>
-      <Col span="6" style="padding-right: 5px">
+    <el-row>
+      <el-col :span="6" style="padding-right: 5px">
       <info-card
         iconType="android-person-add"
         color="#2d8cf0"
         count="13425"
         message="Total Users"></info-card>
-      </Col>
-      <Col span="6" style="padding-right: 5px">
+      </el-col>
+      <el-col :span="6" style="padding-right: 5px">
       <info-card
         iconType="android-person-add"
         color="#64d572"
         count="765"
         message="Total Members"></info-card>
-      </Col>
-      <Col span="6" style="padding-right: 5px">
+      </el-col>
+      <el-col :span="6" style="padding-right: 5px">
       <info-card
         iconType="android-person-add"
         color="#ffd572"
         count="235"
         message="New Users"></info-card>
-      </Col>
-      <Col span="6" >
+      </el-col>
+      <el-col :span="6" >
       <info-card
         iconType="android-person-add"
         color="#f25e43"
         count="76"
         message="New Member"></info-card>
-      </Col>
+      </el-col>
 
-    </Row>
-    <Row style="padding-top: 10px">
-      <Col span="24">
-      <Card>
+    </el-row>
+    <el-row style="padding-top: 10px">
+      <el-col :span="24">
+      <el-card>
         <p slot="title" class="card-title">
-          <Icon type="ios-shuffle-strong"></Icon>
+          <i type="ios-shuffle-strong"></i>
           广告投放分析
         </p>
         <div class="line-chart-con">
           <line-chart></line-chart>
         </div>
-      </Card>
-      </Col>
+      </el-card>
+      </el-col>
 
-    </Row>
-    <Row style="padding-top: 10px">
-      <Col span="8" style="padding-right: 5px">
-      <Card>
+    </el-row>
+    <el-row style="padding-top: 10px">
+      <el-col :span="8" style="padding-right: 5px">
+      <el-card>
         <p slot="title" class="card-title">
-          <Icon type="android-wifi"></Icon>
+          <i type="android-wifi"></i>
           各类用户服务调用变化统计
 
         </p>
         <div style="height: 200px">
           <gauge-chart></gauge-chart>
         </div>
-      </Card>
-      </Col>
-      <Col span="8" style="padding-right: 5px">
-      <Card>
+      </el-card>
+      </el-col>
+      <el-col :span="8" style="padding-right: 5px">
+      <el-card>
         <p slot="title" class="card-title">
-          <Icon type="android-wifi"></Icon>
+          <i type="android-wifi"></i>
           用户访问来源
 
         </p>
         <div style="height: 200px">
           <pie-chart></pie-chart>
         </div>
-      </Card>
-      </Col>
-      <Col span="8" >
-      <Card>
+      </el-card>
+      </el-col>
+      <el-col :span="8" >
+      <el-card>
         <p slot="title" class="card-title">
-          <Icon type="android-wifi"></Icon>
+          <i type="android-wifi"></i>
           上周每日服务调用量
 
         </p>
         <div style="height: 200px">
           <shadow-chart></shadow-chart>
         </div>
-      </Card>
-      </Col>
+      </el-card>
+      </el-col>
 
-    </Row>
+    </el-row>
 
   </div>
 </template>
