@@ -2,6 +2,13 @@
 
 > A admin template base on element 2.x.x
 
+## Live Demo:
+- [https://tonyluo.github.io/iview-vue-admin](https://tonyluo.github.io/iview-vue-admin)
+
+![image](https://github.com/TonyLuo/iview-vue-admin/blob/master/gifs/iadmin.gif)
+
+
+
 ## Build Setup
 
 ``` bash
@@ -18,4 +25,16 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Links
+
+- [Vue](https://github.com/vuejs/vue)
+- [Webpack](https://github.com/webpack/webpack)
+- [element](http://element.eleme.io/)
+
+## License
+[MIT](http://opensource.org/licenses/MIT)
+
+This project is built base on element@2.x, some code is from the element official demo
+
+Copyright (c) 2017-present, Tony Luo
