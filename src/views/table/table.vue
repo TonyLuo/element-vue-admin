@@ -1,170 +1,102 @@
 <template>
-  <span>
-    <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
-    <div style="margin: 10px;overflow: hidden">
-      <div style="float: right;">
-        <Page :total="100" :current="1"
-              @on-change="changePage"
-              @on-page-size-change ="changePageSize"
-              show-total show-sizer></Page>
-      </div>
-    </div>
-  </span>
-
+  <el-table
+    :data="tableData5"
+    style="width: 100%">
+    <el-table-column type="expand">
+      <template scope="props">
+        <el-form label-position="left" inline class="demo-table-expand">
+          <el-form-item label="商品名称">
+            <span>{{ props.row.name }}</span>
+          </el-form-item>
+          <el-form-item label="所属店铺">
+            <span>{{ props.row.shop }}</span>
+          </el-form-item>
+          <el-form-item label="商品 ID">
+            <span>{{ props.row.id }}</span>
+          </el-form-item>
+          <el-form-item label="店铺 ID">
+            <span>{{ props.row.shopId }}</span>
+          </el-form-item>
+          <el-form-item label="商品分类">
+            <span>{{ props.row.category }}</span>
+          </el-form-item>
+          <el-form-item label="店铺地址">
+            <span>{{ props.row.address }}</span>
+          </el-form-item>
+          <el-form-item label="商品描述">
+            <span>{{ props.row.desc }}</span>
+          </el-form-item>
+        </el-form>
+      </template>
+    </el-table-column>
+    <el-table-column
+      label="商品 ID"
+      prop="id">
+    </el-table-column>
+    <el-table-column
+      label="商品名称"
+      prop="name">
+    </el-table-column>
+    <el-table-column
+      label="描述"
+      prop="desc">
+    </el-table-column>
+  </el-table>
 </template>
+
+<style>
+  .demo-table-expand {
+    font-size: 0;
+  }
+  .demo-table-expand label {
+    width: 90px;
+    color: #99a9bf;
+  }
+  .demo-table-expand .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 50%;
+  }
+</style>
+
 <script>
   export default {
-    data () {
+    data() {
       return {
-        page: 1,
-        pageSize: 10,
-        tableData1: this.mockTableData1(),
-        tableColumns1: [
-          {
-            title: '名称',
-            key: 'name'
-          },
-          {
-            title: '状态',
-            key: 'status',
-            render: (h, params) => {
-              const row = params.row
-              const color = row.status === 1 ? 'blue' : row.status === 2 ? 'green' : 'red'
-              const text = row.status === 1 ? '构建中' : row.status === 2 ? '构建完成' : '构建失败'
-
-              return h('Tag', {
-                props: {
-                  type: 'dot',
-                  color: color
-                }
-              }, text)
-            }
-          },
-          {
-            title: '画像内容',
-            key: 'portrayal',
-            render: (h, params) => {
-              return h('Poptip', {
-                props: {
-                  trigger: 'hover',
-                  title: params.row.portrayal.length + '个画像',
-                  placement: 'bottom'
-                }
-              }, [
-                h('Tag', params.row.portrayal.length),
-                h('div', {
-                  slot: 'content'
-                }, [
-                  h('ul', this.tableData1[params.index].portrayal.map(item => {
-                    return h('li', {
-                      style: {
-                        textAlign: 'center',
-                        padding: '4px'
-                      }
-                    }, item)
-                  }))
-                ])
-              ])
-            }
-          },
-          {
-            title: '选定人群数',
-            key: 'people',
-            render: (h, params) => {
-              return h('Poptip', {
-                props: {
-                  trigger: 'hover',
-                  title: params.row.people.length + '个客群',
-                  placement: 'bottom'
-                }
-              }, [
-                h('Tag', params.row.people.length),
-                h('div', {
-                  slot: 'content'
-                }, [
-                  h('ul', this.tableData1[params.index].people.map(item => {
-                    return h('li', {
-                      style: {
-                        textAlign: 'center',
-                        padding: '4px'
-                      }
-                    }, item.n + '：' + item.c + '人')
-                  }))
-                ])
-              ])
-            }
-          },
-          {
-            title: '取样时段',
-            key: 'time',
-            render: (h, params) => {
-              return h('div', '近' + params.row.time + '天')
-            }
-          },
-          {
-            title: '更新时间',
-            key: 'update',
-            render: (h, params) => {
-              return h('div', this.formatDate(this.tableData1[params.index].update))
-            }
-          }
-        ]
+        tableData5: [{
+          id: '12987122',
+          name: '好滋好味鸡蛋仔',
+          category: '江浙小吃、小吃零食',
+          desc: '荷兰优质淡奶，奶香浓而不腻',
+          address: '上海市普陀区真北路',
+          shop: '王小虎夫妻店',
+          shopId: '10333'
+        }, {
+          id: '12987123',
+          name: '好滋好味鸡蛋仔',
+          category: '江浙小吃、小吃零食',
+          desc: '荷兰优质淡奶，奶香浓而不腻',
+          address: '上海市普陀区真北路',
+          shop: '王小虎夫妻店',
+          shopId: '10333'
+        }, {
+          id: '12987125',
+          name: '好滋好味鸡蛋仔',
+          category: '江浙小吃、小吃零食',
+          desc: '荷兰优质淡奶，奶香浓而不腻',
+          address: '上海市普陀区真北路',
+          shop: '王小虎夫妻店',
+          shopId: '10333'
+        }, {
+          id: '12987126',
+          name: '好滋好味鸡蛋仔',
+          category: '江浙小吃、小吃零食',
+          desc: '荷兰优质淡奶，奶香浓而不腻',
+          address: '上海市普陀区真北路',
+          shop: '王小虎夫妻店',
+          shopId: '10333'
+        }]
       }
-    },
-    methods: {
-      mockTableData1 () {
-        console.log('mockTableData ',this.pageSize, this.page)
-        let data = []
-        for (let i = 0; i < this.pageSize; i++) {
-          data.push({
-            name: '商圈' + Math.floor(Math.random() * 100 + 1),
-            status: Math.floor(Math.random() * 3 + 1),
-            portrayal: ['城市渗透', '人群迁移', '消费指数', '生活指数', '娱乐指数'],
-            people: [
-              {
-                n: '客群' + Math.floor(Math.random() * 100 + 1),
-                c: Math.floor(Math.random() * 1000000 + 100000)
-              },
-              {
-                n: '客群' + Math.floor(Math.random() * 100 + 1),
-                c: Math.floor(Math.random() * 1000000 + 100000)
-              },
-              {
-                n: '客群' + Math.floor(Math.random() * 100 + 1),
-                c: Math.floor(Math.random() * 1000000 + 100000)
-              }
-            ],
-            time: Math.floor(Math.random() * 7 + 1),
-            update: new Date()
-          })
-        }
-        return data
-      },
-      formatDate (date) {
-        const y = date.getFullYear()
-        let m = date.getMonth() + 1
-        m = m < 10 ? '0' + m : m
-        let d = date.getDate()
-        d = d < 10 ? ('0' + d) : d
-        return y + '-' + m + '-' + d
-      },
-      changePage (page) {
-        console.log('changePage',page)
-        this.page = page
-        // 这里直接更改了模拟的数据，真实使用场景应该从服务端获取数据
-        this.tableData1 = this.mockTableData1()
-      },
-      changePageSize(size){
-        console.log('changePageSize', size)
-        this.pageSize = size;
-        this.tableData1 = this.mockTableData1()
-
-
-      }
-    },
-    mounted(){
-      this.tableData1 = this.mockTableData1()
-
     }
   }
 </script>

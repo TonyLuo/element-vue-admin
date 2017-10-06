@@ -1,5 +1,5 @@
 <template>
-  <el-tabs id="tabs-nav" v-model="currentPageName" type="card" closable @tab-remove="removeTab">
+  <el-tabs id="tabs-nav" v-model="currentPageName" type="border-card" closable @tab-remove="removeTab">
     <el-tab-pane
       :key="item.name"
       v-for="(item, index) in  $store.state.layout.pageOpenedList"

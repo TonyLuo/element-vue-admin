@@ -5,10 +5,11 @@
              class="el-menu-vertical-demo disabled-animation"
              @open="handleOpen"
              @close="handleClose"
+             :router="true"
              :collapse="isCollapse"
              :class="{'hide-sidebard-text': isCollapse}">
       <template v-for="item in $store.state.layout.menuList">
-        <el-menu-item v-if="!item.children" :index="item.name" :key="item.path">
+        <el-menu-item v-if="!item.children" :index="item.name" :route="item"  :key="item.path">
           <i class="el-icon-menu" :key="item.path"></i>
           <span class="sidebar-menu-text" :key="item.path" slot="title">{{ item.title }}</span>
         </el-menu-item>
@@ -18,7 +19,7 @@
             <i class="el-icon-message"></i>
             <span class="sidebar-menu-text">{{ item.title }}</span>
           </template>
-          <el-menu-item :index="child.name" :key="child.name" v-for="child in item.children">
+          <el-menu-item :index="child.name"  :route="child" :key="child.name" v-for="child in item.children">
             <i class="el-icon-menu" :key="child.path"></i>
             <span class="sidebar-menu-text" :key="child.name" slot="title">{{ child.title }}</span>
 

@@ -1,7 +1,7 @@
 <template>
   <span>
     <div class="left col" >
-      <div class="header row " style="text-align: center" :style="{width: isCollapse?'60px':'200px'}">
+      <div class="header row " style="text-align: center" :style="{width: isCollapse?'60px':'auto'}">
         <a v-if="!isCollapse" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white">
           <i class="el-icon-message" size="24"></i>
         </a>
@@ -15,7 +15,7 @@
       </div>
 
     </div>
-    <div class="right col" :style="{left: isCollapse?'60px':'200px'}">
+    <div class="right col" :style="{left: isCollapse?'65px':'200px'}">
       <ceiling></ceiling>
       <tabs class="layout-tabs"></tabs>
       <breadcrumb class="layout-breadcrumb"></breadcrumb>
@@ -29,6 +29,7 @@
 
 <style>
   @import "./layout/css/layout.css";
+  @import "../styles/chalk.theme.css";
 
   .el-header {
     background-color: #B3C0D1;
