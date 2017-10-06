@@ -65,3 +65,10 @@ export function assert (condition, msg) {
   if (!condition) throw new Error(`[vuex] ${msg}`)
 }
 
+let util = {}
+
+util.title = function (title) {
+  title = title ? title + ' - Home' : 'Element Vue Admin'
+  window.document.title = title
+}
+export default util
