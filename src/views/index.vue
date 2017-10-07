@@ -3,10 +3,10 @@
     <div class="left col"  :class="{ collapse: isCollapse }">
       <div class="header row " style="text-align: center" :style="{width: isCollapse?'65px':'auto'}">
         <a v-if="!isCollapse" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white">
-          <i class="el-icon-message" size="24"></i>
+          <i class="fa fa-github fa-lg"></i>
         </a>
         <span :class="[isCollapse ? 'text-alight-center' : 'floating-right']" @click="toggleClick">
-            <i class="el-icon-message" size="30" color="white"></i>
+            <i class="fa fa-bars" color="white"></i>
         </span>
       </div>
 

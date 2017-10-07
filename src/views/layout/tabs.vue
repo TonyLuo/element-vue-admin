@@ -2,11 +2,11 @@
     <span>
 
       <span :key="item.name" v-for="(item, index) in  itemList">
-        <el-tag :hit="false" :closable="item.name ===  currentPageName"
+        <el-tag :closable="index !== 0"
                 :type="item.name ===  currentPageName ? '' : 'info'"
-                @click.native="linkTo(item.name)"
+                @click.native="onClick(item)"
                 style="margin:2px" color="#fff"
-                @close="removeTab(item, index)">{{item.title}}</el-tag>
+                @close="removeTab($event,item, index)">{{item.title}}</el-tag>
       </span>
 
     </span>
@@ -40,30 +40,25 @@
     data () {
       return {
         currentPageName: '',
-//        itemList: this.$store.state.layout.pageOpenedList.slice()
       }
     },
     watch: {
       '$route' (to, from) {
         this.currentPageName = to.name
-//        console.log(`from:${from.name} to:${to.name}`)
 
       },
       currentPageName () {
-//        let currentPage = this.currentPageName
+        let currentPage = this.currentPageName
 //        //redirect to home when close all tab
-//        if (this.currentPageName === -1) {
-//          currentPage = 'home'
-//        }
+        if (this.currentPageName === -1) {
+          currentPage = 'home'
+        }
 
-//        this.$router.push({
-//          name: currentPage
-//
-//        })
+        this.linkTo(currentPage)
       }
     },
     computed: {
-      itemList() {
+      itemList () {
         return this.$store.state.layout.pageOpenedList.slice()
       }
     },
@@ -73,27 +68,15 @@
 
       },
       onClick (item) {
-        console.log(item)
-//        this.$set(item, 'activated', true)
-//        item.activated = true;
+        this.linkTo(item.name)
       },
-      removeTab (item, index) {
-//        console.log(this.itemList[index -1].name)
-//        if(item.name ===  this.currentPageName){
-//          this.currentPageName = this.itemList[index -1].name;
-//
-//        }
-        this.$store.dispatch('removeTab', item.name).then(()=>{
-          this.$router.push({
-            name: this.itemList[this.itemList.length -1].name
+      removeTab (event, item, index) {
+        event.stopPropagation()
+        if (item.name === this.currentPageName && index !== 0) {
+          this.currentPageName = this.itemList[index - 1].name
 
-          })
-            this.currentPageName = this.itemList[index -1].name
-
-
-          }
-
-        )
+        }
+        this.$store.dispatch('removeTab', item.name)
       },
       linkTo (name) {
         this.$router.push({
