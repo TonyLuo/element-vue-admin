@@ -1,7 +1,7 @@
 <template>
   <span>
-    <div class="left col" >
-      <div class="header row " style="text-align: center" :style="{width: isCollapse?'60px':'auto'}">
+    <div class="left col"  :class="{ collapse: isCollapse }">
+      <div class="header row " style="text-align: center" :style="{width: isCollapse?'65px':'auto'}">
         <a v-if="!isCollapse" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white">
           <i class="el-icon-message" size="24"></i>
         </a>

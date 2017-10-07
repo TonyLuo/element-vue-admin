@@ -29,6 +29,12 @@ body {
 .left.col {
   width: 200px;
 }
+.left.col.collapse {
+  width: 65px;
+}
+.left.col.collapse:hover {
+  width: 200px;
+}
 
 .right.col {
   left: 200px;

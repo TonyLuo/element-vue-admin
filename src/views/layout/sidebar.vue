@@ -2,6 +2,7 @@
   <span>
     <el-menu
              :default-active="currentPageName"
+             :default-openeds="openedMenuList"
              class="el-menu-vertical-demo disabled-animation"
              @open="handleOpen"
              @close="handleClose"
@@ -63,8 +64,10 @@
       }
     },
     watch: {
-      '$route' (to) {
+      '$route' (to, from) {
         this.currentPageName = to.name
+        console.log(`sidebar from:${from.name} to:${to.name}`)
+
       },
       currentPageName () {
         if (this.$store.state.layout.ready) {
@@ -98,6 +101,7 @@
 
       },
       changeMenu (menuName) {
+        console.log(menuName)
         this.currentPageName = menuName
         this.$router.push({
           name: menuName
