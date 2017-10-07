@@ -1,7 +1,7 @@
 <template>
   <el-breadcrumb separator="/">
     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-    <el-breadcrumb-item v-for="item in $store.state.layout.currentPath"
+    <el-breadcrumb-item v-for="item in currentPath"
                         :to="item.name"
                         :key="item.name">{{item.title}}</el-breadcrumb-item>
   </el-breadcrumb>
@@ -18,7 +18,12 @@
     props: {},
     data () {
       return {}
-    }
+    },
+    computed: {
+      currentPath () {
+        return this.$store.state.layout.currentPath.slice()
+      }
+    },
 
   }
 </script>

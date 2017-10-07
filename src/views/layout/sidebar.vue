@@ -9,7 +9,7 @@
              :router="true"
              :collapse="isCollapse"
              :class="{'hide-sidebard-text': isCollapse}">
-      <template v-for="item in $store.state.layout.menuList">
+      <template v-for="item in menuList">
         <el-menu-item v-if="!item.children" :index="item.name" :route="item"  :key="item.path">
           <i :class="item.icon" :key="item.path" style="width:24px"></i>
           <span class="sidebar-menu-text" :key="item.path" slot="title">{{ item.title }}</span>
@@ -45,6 +45,7 @@
   /*}*/
 </style>
 <script>
+  import { appRouter } from '../../router'
 
   export default {
     name: 'sidebar',
@@ -61,6 +62,9 @@
     computed: {
       iconSize () {
         return 14
+      },
+      menuList () {
+        return this.$store.state.layout.menuList.slice()
       }
     },
     watch: {

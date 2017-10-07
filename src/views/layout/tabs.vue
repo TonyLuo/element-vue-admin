@@ -1,37 +1,15 @@
 <template>
     <span>
 
-      <span :key="item.name" v-for="(item, index) in  itemList">
-        <el-tag :closable="index !== 0"
+        <el-tag :closable="index !== 0" :key="item.name" v-for="(item, index) in  itemList"
                 :type="item.name ===  currentPageName ? '' : 'info'"
                 @click.native="onClick(item)"
-                style="margin:2px" color="#fff"
+                style="margin:2px;cursor : pointer;" color="#fff"
                 @close="removeTab($event,item, index)">{{item.title}}</el-tag>
-      </span>
-
     </span>
-
-  <!--<el-tabs id="tabs-nav" v-model="currentPageName" type="border-card" closable @tab-remove="removeTab">-->
-  <!--<el-tab-pane-->
-  <!--:key="item.name"-->
-  <!--v-for="(item, index) in  $store.state.layout.pageOpenedList"-->
-  <!--:label="item.title"-->
-  <!--:name="item.name"-->
-  <!--&gt;-->
-  <!--{{item.content}}-->
-  <!--</el-tab-pane>-->
-  <!--</el-tabs>-->
 </template>
 <style>
 
-  /* Hide close button for home page */
-  #tabs-nav .ivu-tabs-nav > div:nth-child(2) > i {
-    display: none
-  }
-
-  #tabs-nav > div.el-tabs__header > div > div.el-tabs__nav-scroll > div > div > span {
-
-  }
 </style>
 <script>
   export default {
