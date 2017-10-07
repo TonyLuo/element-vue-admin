@@ -1,6 +1,5 @@
 <template>
     <span>
-
         <el-tag :closable="index !== 0" :key="item.name" v-for="(item, index) in  itemList"
                 :type="item.name ===  currentPageName ? '' : 'info'"
                 @click.native="onClick(item)"
@@ -9,7 +8,14 @@
     </span>
 </template>
 <style>
+  .el-tag{
+    background-color: #ffffff !important;
 
+  }
+  .el-tag--info{
+    background-color: #f8f8f9 !important;
+
+  }
 </style>
 <script>
   export default {

@@ -23,7 +23,7 @@
       currentPath () {
         return this.$store.state.layout.currentPath.slice()
       }
-    },
+    }
 
   }
 </script>

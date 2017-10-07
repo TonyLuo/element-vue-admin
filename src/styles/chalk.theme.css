@@ -1,9 +1,12 @@
 /*
 refer to http://stevesanderson.github.io/fixed-height-layouts-demo/two-columns.html
 */
-
-body {
-  font-family: 'Helvetica Neue', Arial, Sans-Serif;
+html body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  background: #fff;
 }
 
 .header, .footer {
@@ -22,10 +25,11 @@ body {
   background: #ddd
 }
 
-/*.right.col { border-left: 1px solid black; }*/
+/*.right.col { border-left: 1px solid #eee; }*/
 .right.col .body {
   padding: 0 1em;
-  background: #fff
+  background: #fff;
+  border-left: 1px solid #eee;
 }
 
 .left.col .body {

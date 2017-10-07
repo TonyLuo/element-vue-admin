@@ -30,7 +30,7 @@ body {
   width: 200px;
 }
 .left.col.collapse {
-  width: 65px;
+  width: 64px;
 }
 .left.col.collapse:hover {
   width: 200px;

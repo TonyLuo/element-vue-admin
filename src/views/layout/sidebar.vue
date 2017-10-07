@@ -1,12 +1,16 @@
 <template>
-  <span>
+  <span id="sidebar">
     <el-menu
              :default-active="currentPageName"
              :default-openeds="openedMenuList"
              class="el-menu-vertical-demo disabled-animation"
              @open="handleOpen"
              @close="handleClose"
-             :router="true"
+             @select="selectMenu"
+             text-color="#C8C8C8"
+             active-text-color="#2d8cf0"
+             background-color="#464c5b"
+
              :collapse="isCollapse"
              :class="{'hide-sidebard-text': isCollapse}">
       <template v-for="item in menuList">
@@ -43,6 +47,8 @@
   /*.hide-sidebard-text i.ivu-menu-submenu-title-icon {*/
     /*display: none;*/
   /*}*/
+
+
 </style>
 <script>
   import { appRouter } from '../../router'
@@ -104,7 +110,7 @@
         })
 
       },
-      changeMenu (menuName) {
+      selectMenu (menuName) {
         console.log(menuName)
         this.currentPageName = menuName
         this.$router.push({
