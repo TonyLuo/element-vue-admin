@@ -2,11 +2,11 @@
   <span>
     <div class="left col"  :class="{ collapse: isCollapse }">
       <div class="header row " style="text-align: center" :style="{width: isCollapse?'65px':'auto'}">
-        <a v-if="!isCollapse" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white">
-          <i class="fa fa-github fa-lg"></i>
+        <a v-if="!isCollapse" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white;size: 40px">
+          <i class="fa fa-github"></i>
         </a>
         <span :class="[isCollapse ? 'text-alight-center' : 'floating-right']" @click="toggleClick">
-            <i class="fa fa-bars" color="white"></i>
+            <i class="fa fa-bars" color="white" ></i>
         </span>
       </div>
 

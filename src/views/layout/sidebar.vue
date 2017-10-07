@@ -11,17 +11,17 @@
              :class="{'hide-sidebard-text': isCollapse}">
       <template v-for="item in $store.state.layout.menuList">
         <el-menu-item v-if="!item.children" :index="item.name" :route="item"  :key="item.path">
-          <i class="el-icon-menu" :key="item.path"></i>
+          <i :class="item.icon" :key="item.path" style="width:24px"></i>
           <span class="sidebar-menu-text" :key="item.path" slot="title">{{ item.title }}</span>
         </el-menu-item>
 
         <el-submenu :index="item.name" v-if="item.children && item.children.length > 0" :key="item.path">
           <template slot="title">
-            <i class="el-icon-message"></i>
+          <i :class="item.icon" :key="item.path" style="width:24px"></i>
             <span class="sidebar-menu-text">{{ item.title }}</span>
           </template>
           <el-menu-item :index="child.name"  :route="child" :key="child.name" v-for="child in item.children">
-            <i class="el-icon-menu" :key="child.path"></i>
+          <i :class="item.icon" :key="item.path" style="width:24px"></i>
             <span class="sidebar-menu-text" :key="child.name" slot="title">{{ child.title }}</span>
 
           </el-menu-item>

@@ -18,14 +18,14 @@ export const appRouter = [
     title: '首页',
     path: '/home',
     name: 'home',
-    icon: 'ios-home',
+    icon: 'fa fa-home fa-lg',
     component: Home
   },
   {
     title: '内容管理',
     path: '/content',
     name: 'content',
-    icon: 'ios-paper',
+    icon: 'fa fa-home fa-lg',
     component: Abstract,
     children: [
       {
@@ -56,21 +56,21 @@ export const appRouter = [
     title: '用户管理',
     path: '/user',
     name: 'user',
-    icon: 'ios-people',
+    icon: 'fa fa-home fa-lg',
     component: Abstract,
     children: [
       {
         title: '新增用户',
         name: 'usr_new',
         path: 'new',
-        icon: 'ios-paper',
+        icon: 'fa fa-home fa-lg',
         component: Login
       },
       {
         title: '活跃用户',
         name: 'usr_activated',
         path: 'activated',
-        icon: 'images',
+        icon: 'fa fa-home fa-lg',
         component: Table
       }
     ]
@@ -79,42 +79,42 @@ export const appRouter = [
     title: '统计分析',
     path: '/statistics',
     name: 'statistics',
-    icon: 'stats-bars',
+    icon: 'fa fa-home fa-lg',
     component: Abstract,
     children: [
       {
         title: '新增和启动',
         name: 'stats_new',
         path: 'new',
-        icon: 'ios-paper',
+        icon: 'fa fa-home fa-lg',
         component: Login
       },
       {
         title: '活跃分析',
         name: 'stats_activated',
         path: 'activated',
-        icon: 'images',
+        icon: 'fa fa-home fa-lg',
         component: Table
       },
       {
         title: '时段分析',
         name: 'stats_time',
         path: 'time',
-        icon: 'images',
+        icon: 'fa fa-home fa-lg',
         component: Table
       },
       {
         title: '用户留存',
         name: 'retention',
         path: 'retention',
-        icon: 'images',
+        icon: 'fa fa-home fa-lg',
         component: Table
       },
       {
         title: '流失用户',
         name: 'churn',
         path: 'churn',
-        icon: 'images',
+        icon: 'fa fa-home fa-lg',
         component: Table
       }
     ]
