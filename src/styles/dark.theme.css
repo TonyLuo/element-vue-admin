@@ -25,7 +25,7 @@ body {
 /*.right.col { border-left: 1px solid black; }*/
 .right.col .body {
   padding: 0 1em;
-  background: #fff
+  background: #f8f8f9
 }
 
 .left.col .body {

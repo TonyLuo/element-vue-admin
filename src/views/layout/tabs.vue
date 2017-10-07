@@ -9,11 +9,11 @@
 </template>
 <style>
   .el-tag{
-    background-color: #ffffff !important;
+    background-color: #f8f8f9 !important;
 
   }
   .el-tag--info{
-    background-color: #f8f8f9 !important;
+    background-color: #eee !important;
 
   }
 </style>
