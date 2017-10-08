@@ -2,7 +2,7 @@
   <span style="z-index: 11">
     <div class="left col"  :class="{ collapse: isCollapse }">
       <div class="header row " style="text-align: center" :style="{width: isCollapse?'64px':'auto'}">
-        <a v-if="!isCollapse" href="https://github.com/TonyLuo/iview-vue-admin" style="color: white;size: 40px">
+        <a v-if="!isCollapse" href="https://github.com/TonyLuo/element-vue-admin" style="color: white;size: 40px">
           <i class="fa fa-github"></i>
         </a>
         <span :class="[isCollapse ? 'text-alight-center' : 'floating-right']" @click="toggleClick">
