@@ -3,7 +3,7 @@
 > A admin template base on element 2.x.x
 
 ## Live Demo:
-- [https://tonyluo.github.io/iview-vue-admin](https://tonyluo.github.io/iview-vue-admin)
+- [https://tonyluo.github.io/element-vue-admin](https://tonyluo.github.io/element-vue-admin)
 
 ![image](https://github.com/TonyLuo/iview-vue-admin/blob/master/gifs/iadmin.gif)
 
